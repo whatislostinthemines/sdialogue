@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tree id="example_tree" minsector="0">
+    <speakers>
+        <speaker name="Steven Mitchell"/>
+    </speakers>
+    <node id="root">
+        <speaker name="Steven Mitchell"/>
+        <text text="This is a quick test to demonstrate the new dialogue tool."/>
+        <choice text="Tell me more!" next="tellmemore" effect="none">
+            <required_flag id="XML_REQUIREDFLAG_1"/>
+            <required_tree id="XML_PRIORDIALOGUE_1"/>
+            <sets_flag id="XML_FLAGSET_1"/>
+        </choice>
+        <choice text="I don't really care." next="none" effect="exit">
+            <sets_flag id="XML_DONTCARE"/>
+        </choice>
+    </node>
+    <node id="tellmemore">
+        <speaker name="Steven Mitchell"/>
+        <text text="Well, realistically, this new system allows for both effects and setting flags, which can then be messed with as you desire."/>
+        <choice text="Run that by me again?" next="root" effect="none">
+            <sets_flag id="XML_REPEATED"/>
+            <sets_flag id="XML_USER_IDIOT"/>
+        </choice>
+        <choice text="Nifty. Thanks, Steven." next="none" effect="exit">
+            <sets_flag id="XML_POLITE"/>
+        </choice>
+    </node>
+</tree>
